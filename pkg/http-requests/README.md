@@ -15,10 +15,10 @@
 
 ### 1) 安装（go install）
 
-使用远程包路径安装:
+使用远程包路径安装：
 
 ```bash
-go install github.com/quanguachong/mcp-servers/http/cmd/http-requests@latest
+go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
 ```
 
 安装后命令通常位于 `$HOME/go/bin/http-requests`（或 `$GOBIN/http-requests`）。

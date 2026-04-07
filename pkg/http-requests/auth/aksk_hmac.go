@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/quanguachong/mcp-servers/http/internal/types"
+	"github.com/quanguachong/mcp-servers/pkg/http-requests/types"
 )
 
 type akskHMACApplier struct {

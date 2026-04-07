@@ -12,21 +12,26 @@
 ```text
 mcp-server/
 ├── README.md
-├── mongodb/
-│   ├── README.md
-│   ├── go.mod
-│   ├── main.go
-│   ├── go.sum
-│   └── pkg/
-└── http/
-    ├── README.md
-    ├── go.mod
-    ├── go.sum
-    ├── cmd/http-requests/main.go
-    └── internal/
+├── go.mod
+├── go.sum
+├── cmd/
+│   ├── http-requests/
+│   │   └── main.go
+│   └── mongodb-mcp-server/
+│       └── main.go
+└── pkg/
+    ├── http-requests/
+    │   ├── README.md
+    │   ├── auth/
+    │   ├── httpclient/
+    │   ├── mcpserver/
+    │   └── types/
+    └── mongodb-mcp-server/
+        ├── README.md
+        └── *.go
 ```
 
-> 建议保持两个 Server 各自独立的 `go.mod`，避免依赖耦合。
+> 当前仓库使用根目录单一 `go.mod` 管理依赖，`cmd/` 放启动入口，`pkg/` 放两个 MCP 的业务逻辑。
 
 ## 快速开始
 
@@ -35,8 +40,8 @@ mcp-server/
 使用远程包路径安装:
 
 ```bash
-go install github.com/quanguachong/mcp-servers/mongodb@latest
-go install github.com/quanguachong/mcp-servers/http/cmd/http-requests@latest
+go install github.com/quanguachong/mcp-servers/cmd/mongodb-mcp-server@latest
+go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
 ```
 
 安装后可执行文件会放到 `$GOBIN`（未设置时通常为 `$HOME/go/bin`）：
@@ -68,4 +73,7 @@ go install github.com/quanguachong/mcp-servers/http/cmd/http-requests@latest
 
 如果 Cursor 找不到命令，可改为绝对路径，例如 `/Users/<you>/go/bin/http-requests`。
 
-更多参数和 tool 说明见：[mongodb/README.md](./mongodb/README.md) 与 [http/README.md](./mongodb/README.md)。
+更多参数和 tool 说明见：
+
+- [pkg/mongodb-mcp-server/README.md](./pkg/mongodb-mcp-server/README.md)
+- [pkg/http-requests/README.md](./pkg/http-requests/README.md)

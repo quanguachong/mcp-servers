@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/quanguachong/mcp-servers/http/internal/types"
+	"github.com/quanguachong/mcp-servers/pkg/http-requests/types"
 )
 
 type Applier interface {
@@ -20,7 +20,6 @@ func NewApplier(cfg *types.AuthConfig) (Applier, error) {
 
 	authType := strings.TrimSpace(cfg.Type)
 	if authType == "" {
-		// 兼容 inspector 传入空 auth 对象，或仅传认证子对象不传 type 的场景
 		switch {
 		case cfg.Bearer != nil:
 			authType = "bearer"

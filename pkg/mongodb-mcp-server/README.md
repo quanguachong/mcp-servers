@@ -18,10 +18,10 @@
 
 ### 1) 安装（go install）
 
-使用远程包路径安装:
+使用远程包路径安装：
 
 ```bash
-go install github.com/quanguachong/mcp-servers/mongodb@latest
+go install github.com/quanguachong/mcp-servers/cmd/mongodb-mcp-server@latest
 ```
 
 安装后命令通常位于 `$HOME/go/bin/mongodb-mcp-server`（或 `$GOBIN/mongodb-mcp-server`）。

@@ -1,4 +1,4 @@
-package pkg
+package mongodbmcpserver
 
 import "testing"
 
@@ -26,6 +26,5 @@ func TestParseFilter_ObjectIdAndEJSON(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	// 两者解析后应对查询等价（bson 值一致较难直接比，至少无错且含 _id）
 	_ = f2
 }
