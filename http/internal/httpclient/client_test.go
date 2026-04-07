@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"http-requests/internal/types"
+	"github.com/quanguachong/mcp-servers/http/internal/types"
 )
 
 func TestSendCustomMethodPassthrough(t *testing.T) {

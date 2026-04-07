@@ -44,7 +44,9 @@ go install github.com/quanguachong/mcp-servers/http/cmd/http-requests@latest
 - `mongodb-mcp-server`
 - `http-requests`
 
-### 2) 配置 Cursor（`~/.cursor/mcp.json`）
+### 2) 配置 MCP Config
+
+#### Cursor（`~/.cursor/mcp.json`）
 
 编辑 `~/.cursor/mcp.json`，在 `mcpServers` 中增加（或合并）以下配置：
 
@@ -67,29 +69,3 @@ go install github.com/quanguachong/mcp-servers/http/cmd/http-requests@latest
 如果 Cursor 找不到命令，可改为绝对路径，例如 `/Users/<you>/go/bin/http-requests`。
 
 更多参数和 tool 说明见：[mongodb/README.md](./mongodb/README.md) 与 [http/README.md](./mongodb/README.md)。
-
-## 本地开发
-
-### 运行测试
-
-```bash
-cd mongodb && go test ./...
-cd ../http && go test ./...
-```
-
-### 建议补充（可选）
-
-可以按需补充：
-
-- `LICENSE`
-- `.github/workflows/`（CI：分别执行两个子模块的 `go test ./...`）
-
-## Cursor MCP 配置说明
-
-推荐优先使用 `go install` 后的可执行文件名直接配置到 `~/.cursor/mcp.json`。
-
-## 后续建议
-
-- 为两个 Server 统一补充版本号策略（tag 或 changelog）
-- 增加根目录 CI，覆盖两个子模块测试
-- 如需发布二进制，可增加 `Makefile` 或发布脚本统一构建

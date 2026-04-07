@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"mongodb-mcp-server/pkg"
+	"github.com/quanguachong/mcp-servers/mongodb/pkg"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )

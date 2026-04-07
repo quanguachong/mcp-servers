@@ -1,4 +1,4 @@
-module http-requests
+module github.com/quanguachong/mcp-servers/http
 
 go 1.25.1
 

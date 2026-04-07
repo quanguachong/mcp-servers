@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"http-requests/internal/httpclient"
-	"http-requests/internal/types"
+	"github.com/quanguachong/mcp-servers/http/internal/httpclient"
+	"github.com/quanguachong/mcp-servers/http/internal/types"
 
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"

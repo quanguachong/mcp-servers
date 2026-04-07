@@ -1,4 +1,4 @@
-module mongodb-mcp-server
+module github.com/quanguachong/mcp-servers/mongodb
 
 go 1.25.1
 

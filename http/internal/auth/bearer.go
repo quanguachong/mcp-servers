@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"http-requests/internal/types"
+	"github.com/quanguachong/mcp-servers/http/internal/types"
 )
 
 type bearerApplier struct {

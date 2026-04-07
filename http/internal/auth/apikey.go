@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"http-requests/internal/types"
+	"github.com/quanguachong/mcp-servers/http/internal/types"
 )
 
 type apiKeyApplier struct {

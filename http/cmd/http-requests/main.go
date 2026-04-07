@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	mcpserver "http-requests/internal/mcp"
+	mcpserver "github.com/quanguachong/mcp-servers/http/internal/mcp"
 
 	"github.com/mark3labs/mcp-go/server"
 )

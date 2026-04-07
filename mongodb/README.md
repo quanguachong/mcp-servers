@@ -33,7 +33,7 @@ go install github.com/quanguachong/mcp-servers/mongodb@latest
 ```json
 {
   "mcpServers": {
-    "custom-mongodb-mcp-server": {
+    "mongodb-mcp-server": {
       "command": "mongodb-mcp-server",
       "env": {
         "MONGODB_URI": "mongodb://<your-uri>"

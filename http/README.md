@@ -30,7 +30,7 @@ go install github.com/quanguachong/mcp-servers/http/cmd/http-requests@latest
 ```json
 {
   "mcpServers": {
-    "custom-http-requests": {
+    "http-requests": {
       "command": "http-requests"
     }
   }

@@ -14,8 +14,8 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"http-requests/internal/auth"
-	"http-requests/internal/types"
+	"github.com/quanguachong/mcp-servers/http/internal/auth"
+	"github.com/quanguachong/mcp-servers/http/internal/types"
 )
 
 type Client struct{}

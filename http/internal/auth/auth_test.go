@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"testing"
 
-	"http-requests/internal/types"
+	"github.com/quanguachong/mcp-servers/http/internal/types"
 )
 
 func TestAPIKeyQueryApply(t *testing.T) {
