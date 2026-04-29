@@ -4,6 +4,7 @@
 
 - `mongodb`：MongoDB 查询能力（`count`、`find`、`list-databases`、`list-collections`）
 - `http`：HTTP 请求能力（`get/post/put_http_request` 默认可用，支持多种认证方式；`delete/patch_http_request` 需扩展构建）
+- `kubernetes`：Kubernetes 只读查询能力（12 个只读 tools；不包含 `pods_exec/pods_delete/pods_run/resources_delete/resources_scale/resources_create_or_update`）
 
 ## 推荐目录结构
 
@@ -17,6 +18,8 @@ mcp-server/
 ├── cmd/
 │   ├── http-requests/
 │   │   └── main.go
+│   ├── kubernetes-mcp-server/
+│   │   └── main.go
 │   └── mongodb-mcp-server/
 │       └── main.go
 └── pkg/
@@ -26,6 +29,9 @@ mcp-server/
     │   ├── httpclient/
     │   ├── mcpserver/
     │   └── types/
+    ├── kubernetes-mcp-server/
+    │   ├── README.md
+    │   └── *.go
     └── mongodb-mcp-server/
         ├── README.md
         └── *.go
@@ -35,19 +41,21 @@ mcp-server/
 
 ## 快速开始
 
-### 1) 安装两个 MCP Server（go install）
+### 1) 安装三个 MCP Server（go install）
 
 使用远程包路径安装:
 
 ```bash
 go install github.com/quanguachong/mcp-servers/cmd/mongodb-mcp-server@latest
 go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
+go install github.com/quanguachong/mcp-servers/cmd/kubernetes-mcp-server@latest
 ```
 
 安装后可执行文件会放到 `$GOBIN`（未设置时通常为 `$HOME/go/bin`）：
 
 - `mongodb-mcp-server`
 - `http-requests`
+- `kubernetes-mcp-server`
 
 ### 2) 配置 MCP Config
 
@@ -66,6 +74,13 @@ go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
     },
     "http-requests": {
       "command": "http-requests"
+    },
+    "kubernetes-mcp-server": {
+      "command": "kubernetes-mcp-server",
+      "args": [
+        "--kubeconfig",
+        "/Users/<you>/.kube/config"
+      ]
     }
   }
 }
@@ -77,3 +92,4 @@ go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
 
 - [pkg/mongodb-mcp-server/README.md](./pkg/mongodb-mcp-server/README.md)
 - [pkg/http-requests/README.md](./pkg/http-requests/README.md)
+- [pkg/kubernetes-mcp-server/README.md](./pkg/kubernetes-mcp-server/README.md)
