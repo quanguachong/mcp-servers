@@ -1,10 +1,16 @@
 # http-requests MCP Server
 
-一个基于 Go 的 MCP `stdio` Server，提供 `send_http_request` 工具，用于发送 HTTP 请求。
+一个基于 Go 的 MCP `stdio` Server，提供按 HTTP Method 拆分的请求工具。
 
 ## 功能
 
-- 支持所有 HTTP Method（`method` 字符串透传）。
+- 默认提供 `GET/POST/PUT` 三个工具：
+  - `get_http_request`
+  - `post_http_request`
+  - `put_http_request`
+- 可选提供扩展工具（编译时开启）：
+  - `delete_http_request`
+  - `patch_http_request`
 - 支持认证方式：
   - `bearer`
   - `api_key`（header/query）
@@ -39,18 +45,37 @@ go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
 
 如果 PATH 未包含 Go bin 目录，请将 `command` 改为绝对路径，例如 `/Users/<you>/go/bin/http-requests`。
 
+## 构建行为
+
+默认构建不会包含 `DELETE/PATCH` tool：
+
+```bash
+go build ./cmd/http-requests
+```
+
+如需启用 `DELETE/PATCH` tool，请使用 build tag：
+
+```bash
+go build -tags http_requests_extended_methods ./cmd/http-requests
+```
+
 ## Tool 参数与返回
 
 各 tool 用途说明：
 
-- `send_http_request`：发送 HTTP 请求并返回结构化响应，支持自定义 headers/query/body、超时设置与多种认证方式。
+- `get_http_request`
+- `post_http_request`
+- `put_http_request`
+- `delete_http_request`（仅扩展构建）
+- `patch_http_request`（仅扩展构建）
 
-### 1） `send_http_request`
+除 tool 名称和固定 Method 外，参数与返回结构一致。
+
+### 参数
 
 主要参数：
 
 - `url`：请求地址（必填）
-- `method`：HTTP 方法（必填）
 - `headers`：请求头 map
 - `query`：查询参数 map
 - `body`：字符串或 JSON 对象
@@ -72,8 +97,8 @@ go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
 
 ```json
 {
+  "tool": "get_http_request",
   "url": "https://httpbin.org/get",
-  "method": "GET",
   "auth": {
     "type": "bearer",
     "bearer": {
@@ -87,8 +112,8 @@ go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
 
 ```json
 {
+  "tool": "get_http_request",
   "url": "https://httpbin.org/get",
-  "method": "GET",
   "auth": {
     "type": "api_key",
     "api_key": {
@@ -104,8 +129,8 @@ go install github.com/quanguachong/mcp-servers/cmd/http-requests@latest
 
 ```json
 {
+  "tool": "post_http_request",
   "url": "https://example.com/v1/resource?a=1",
-  "method": "POST",
   "body": {
     "name": "demo"
   },

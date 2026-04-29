@@ -3,7 +3,7 @@
 这个仓库存储了多个 MCP Servers：
 
 - `mongodb`：MongoDB 查询能力（`count`、`find`、`list-databases`、`list-collections`）
-- `http`：HTTP 请求能力（`send_http_request`，支持多种认证方式）
+- `http`：HTTP 请求能力（`get/post/put_http_request` 默认可用，支持多种认证方式；`delete/patch_http_request` 需扩展构建）
 
 ## 推荐目录结构
 

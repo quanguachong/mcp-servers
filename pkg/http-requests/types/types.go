@@ -39,6 +39,15 @@ type SendHTTPRequestInput struct {
 	Auth      *AuthConfig       `json:"auth,omitempty"`
 }
 
+type HTTPRequestToolInput struct {
+	URL       string            `json:"url"`
+	Headers   map[string]string `json:"headers,omitempty"`
+	Query     map[string]string `json:"query,omitempty"`
+	Body      any               `json:"body,omitempty"`
+	TimeoutMS int               `json:"timeout_ms,omitempty"`
+	Auth      *AuthConfig       `json:"auth,omitempty"`
+}
+
 type SendHTTPRequestResult struct {
 	StatusCode int                 `json:"status_code"`
 	Headers    map[string][]string `json:"headers"`
